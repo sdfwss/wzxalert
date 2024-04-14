@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alert</title>
+<style>
+/* 弹窗动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* 按钮样式和悬浮特效 */
+.button {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #FF8B8B;
+    transform: scale(1.1);
+}
+
+/* 弹窗样式 */
+#customAlert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #FF6B6B;
+    background-color: #FFD6D6;
+    color: #FF6B6B;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+</style>
+</head>
+<body>
+
+<div id="customAlert">
+    <span style="font-size: 40px;">🍰</span>
+    <br><br>
+    <strong style="font-size: 20px;">小心可爱的wzx妹妹（拿着叉子）吃掉你的蛋糕！</strong>
+    <br>
+    不好意思，这个蛋糕是我的啦！
+    <br>
+    （嘟着嘴巴）哼哼~可惜了你的蛋糕~
+    <br><br>
+    <button class="button" onclick="closeAlert()" style="margin-top: 20px; padding: 15px 30px; background-color: #FF6B6B; color: #FFFFFF; border: none; border-radius: 30px; cursor: pointer; font-family: 'Comic Sans MS', cursive;">好叭~</button>
+</div>
+
+<script>
+function closeAlert() {
+    var alertDiv = document.getElementById("customAlert");
+    alertDiv.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    setTimeout(() => { alertDiv.style.display = "none"; }, 500);
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById("customAlert").style.display = "block";
+});
+</script>
+
+</body>
+</html>
